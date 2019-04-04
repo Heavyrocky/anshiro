@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  vars:
+    site: /tmp/site 
+  tasks:
+  - name: Archive with the second template
+    unarchive:
+      src: /home/suporte/Downloads/html5up-story.zip
+      dest: "{{ site }}"
+      mode: 0755
+    tags: file_2
+  - name: Create the directory
+    file:
+      path: "{{ site }}"
+      state: directory
+      mode: 0755
+    tags: create_directory
+  - name: Archive with the first template
+    unarchive:
+      src: /home/suporte/Downloads/html5up-multiverse.zip 
+      dest: "{{ site }}"
+      mode: 0755
+    tags: file_1
+  - name: Start the container
+    docker_container:
+      name: "{{ container_name }}"
+
+      image: nginx
+      ports:
+        - 80:80
+      volumes:
+        - /tmp/site:/usr/share/nginx/html:ro
+    tags: create_container
+  - name: Restart container
+    command: docker restart "{{ container_name }}"
+    tags: restart_container
