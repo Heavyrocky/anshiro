@@ -24,10 +24,9 @@ git clone https://github.com/Heavyrocky/anshiro.git
 sudo vim <path>/anshiro/playbooyk.yml
 ```
 <br />
-2. Inside of this file playbook.yml change the path of template's html that have kept in directory, editing the variable **{{" site "}}**
+2. Inside of this file playbook.yml change the path of template's html that have kept in directory, editing the variable {{" site "}}
 
 <br />
-
 3. After saved, use the command
 
 <br />
