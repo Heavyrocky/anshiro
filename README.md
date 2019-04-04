@@ -27,6 +27,7 @@ sudo vim <path>/anshiro/playbooyk.yml
 2. Inside of this file playbook.yml change the path of template's html that have kept in directory, editing the variable {{" site "}}
 
 <br />
+
 3. After saved, use the command
 
 <br />
@@ -73,7 +74,6 @@ Use ansible tags to select with tasks that can be use.
 **restart_container**: restart the container service
 
 <br />
-
 #### Vars:
 
 <br />
